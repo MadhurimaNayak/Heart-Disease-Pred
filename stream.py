@@ -2,7 +2,7 @@ import numpy as np
 import pickle
 import streamlit as st
 
-loaded_model=pickle.load(open('trained_model1.sav','rb'))
+loaded_model=pickle.load(open('trained_model.sav','rb'))
 
 def heart_pred(input_data):
     
