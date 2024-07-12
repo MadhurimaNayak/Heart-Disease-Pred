@@ -1,8 +1,18 @@
 import numpy as np
 import pickle
 import streamlit as st
+import os
 
-loaded_model=pickle.load(open('trained_model.sav','rb'))
+model_path = 'trained_model.sav'
+
+if not os.path.isfile(model_path):
+    import requests
+    url = 'https://drive.google.com/file/d/1ZyCh0_pdNCXCxizzO-2Hbzl8WAh60_HD/view?usp=sharing'
+    response = requests.get(url)
+    with open(model_path, 'wb') as f:
+        f.write(response.content)
+
+loaded_model = pickle.load(open(model_path, 'rb'))
 
 def heart_pred(input_data):
     
